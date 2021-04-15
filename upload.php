@@ -1,5 +1,5 @@
 <?php
-$secured = $_GET['secured'];
+$secured = $_POST['secured'];
 if($secured == true){
     $target_dir = "";
     $newFileName = $target_dir .'certificate'.'.'. pathinfo($_FILES["fileToUpload"]["name"] ,PATHINFO_EXTENSION); //get the file extension and append it to the new file name
@@ -48,3 +48,4 @@ else{
 }
 
 ?>
+<a href="index.html">Open main web Page</a>

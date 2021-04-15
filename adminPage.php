@@ -16,26 +16,30 @@
     password :<input type="password" name = "password">
     <input type="submit">
     </form>
+    
     <?php 
         $inUsername = $_POST["username"];
         $inPassword = $_POST["password"];
         $username = "admin";
         $password = "admin123";
+        $secured = false;
     
         
             if($inUsername==$username && $inPassword==$password){
                 echo "Congratulations you have logged in as admin";
+                
                 $secured = true;
                 
             }
             else{
-                    echo "Stop Hacking this";
-                    $secured = false;
+                    echo "Stop Hacking this.";
             }
+
     ?> 
         
         <form action="upload.php?data=<?=$secured?>" method="post" enctype="multipart/form-data">
         Select certificate to upload:
+        <input type="hidden" name="secured" value=<?php echo $secured?>>
         <input type="file" name="fileToUpload" id="fileToUpload">
         <input type="submit" value="Upload Image" name="submit">
         </form>
